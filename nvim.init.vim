@@ -124,7 +124,13 @@ set noshowmode
 set nonu
 
 " indents
-set tabstop=2 softtabstop=2 expandtab shiftwidth=2 smarttab
+set tabstop=2
+set softtabstop=2
+set expandtab
+set shiftwidth=2
+set smarttab
+set list listchars=tab:\>\
+
 au FileType java,groovy setlocal shiftwidth=4 tabstop=4
 
 au BufEnter * EnableStripWhitespaceOnSave
