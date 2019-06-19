@@ -101,6 +101,9 @@ source $ZSH/oh-my-zsh.sh
 alias vi="nvim"
 alias vim="nvim"
 
+# tmux
+alias tmux="tmux -2"
+
 # cat
 alias cat="bat"
 
