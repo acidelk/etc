@@ -354,6 +354,9 @@ set undofile
 set undodir     =$HOME/.vim/files/undo//
 set viminfo     ='100,n$HOME/.vim/files/info/viminfo
 
+" for edit crontab
+autocmd filetype crontab setlocal nobackup nowritebackup
+
 " jump to last cursor position
 au BufReadPost *
       \ if line("'\"") > 1 && line("'\"") <= line("$") |
