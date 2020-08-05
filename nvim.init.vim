@@ -17,6 +17,7 @@ Plug 'airblade/vim-gitgutter'
 " navigation
 Plug 'ervandew/supertab'
 Plug 'rbgrouleff/bclose.vim'
+Plug 'liuchengxu/vim-clap'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -29,6 +30,7 @@ Plug 'junegunn/vim-slash'
 " ------------
 Plug 'elzr/vim-json'
 Plug 'Chiel92/vim-autoformat'
+Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'honza/vim-snippets'
 Plug 'janko-m/vim-test'
@@ -47,7 +49,6 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'vim-scripts/BufOnly.vim'
 Plug 'vim-scripts/YankRing.vim'
-Plug 'vim-syntastic/syntastic'
 Plug 'xolox/vim-easytags'
 Plug 'xolox/vim-misc'
 Plug 'thinca/vim-quickrun'
@@ -62,6 +63,9 @@ Plug 'wakatime/vim-wakatime'
 " markdown
 Plug 'plasticboy/vim-markdown'
 Plug 'suan/vim-instant-markdown'
+
+" python
+Plug 'deoplete-plugins/deoplete-jedi'
 
 " go
 Plug 'fatih/vim-go'
