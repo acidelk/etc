@@ -123,6 +123,14 @@ alias wproxy='sh ~/.http-proxy/sshproxy.sh'
 alias gist='gist -c'
 alias weather='curl wttr.in/moscow'
 
+# oh-my-zsh bindings
+bindkey "^P" up-line-or-search
+bindkey "^N" down-line-or-search
+
+# pyenv-virtualenv
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
 tmp() {
   mkdir -p "/tmp/$1" && cd "/tmp/$1"
 }
@@ -145,27 +153,6 @@ tun() {
 if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
     tmux attach -t default || tmux new -s default
 fi
-
-### added by the bluemix cli
-source /usr/local/bluemix/bx/zsh_autocomplete
-
-### Pyenv for switch python versions
-source '/usr/local/Cellar/pyenv/1.2.11/completions/pyenv.zsh'
-command pyenv rehash 2>/dev/null
-pyenv() {
-  local command
-  command="${1:-}"
-  if [ "$#" -gt 0 ]; then
-    shift
-  fi
-
-  case "$command" in
-  activate|deactivate|rehash|shell)
-    eval "$(pyenv "sh-$command" "$@")";;
-  *)
-    command pyenv "$command" "$@";;
-  esac
-}
 
 #this must be at the end of the file for sdkman to work!!!
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
