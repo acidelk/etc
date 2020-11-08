@@ -298,6 +298,7 @@ nnoremap <silent> <C-f>s :Snippets<cr>
 
 au BufEnter Vagrantfile :setlocal filetype=ruby
 au BufEnter *.json.j2 :setlocal filetype=json
+au BufEnter *.yml.j2 :setlocal filetype=yaml
 
 
 " ------------
