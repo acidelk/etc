@@ -17,7 +17,6 @@ Plug 'airblade/vim-gitgutter'
 " navigation
 Plug 'ervandew/supertab'
 Plug 'rbgrouleff/bclose.vim'
-Plug 'liuchengxu/vim-clap'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -28,9 +27,9 @@ Plug 'junegunn/vim-slash'
 " ------------
 " text editing
 " ------------
+Plug 'neoclide/coc.nvim'
 Plug 'elzr/vim-json'
 Plug 'Chiel92/vim-autoformat'
-Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'honza/vim-snippets'
 Plug 'janko-m/vim-test'
@@ -40,7 +39,6 @@ Plug 'majutsushi/tagbar'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'scrooloose/nerdcommenter'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'SirVer/ultisnips'
 Plug 'sjl/gundo.vim'
 Plug 'terryma/vim-multiple-cursors'
@@ -63,13 +61,6 @@ Plug 'wakatime/vim-wakatime'
 " markdown
 Plug 'plasticboy/vim-markdown'
 Plug 'suan/vim-instant-markdown'
-
-" python
-Plug 'deoplete-plugins/deoplete-jedi'
-
-" go
-Plug 'fatih/vim-go'
-Plug 'zchee/deoplete-go'
 
 " writing
 Plug 'junegunn/goyo.vim'
@@ -171,15 +162,6 @@ cnoreabbrev ag Ack
 cnoreabbrev aG Ack
 cnoreabbrev Ag Ack
 cnoreabbrev AG Ack
-
-
-" --------
-" deoplete
-" --------
-
-let g:deoplete#enable_at_startup = 1
-"let g:deoplete#keyword_patterns = {}
-"let g:deoplete#keyword_patterns.clojure = '[\w!$%&*+/:<=>?@\^_~\-\.#]*'
 
 
 " ----
