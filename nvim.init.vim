@@ -51,6 +51,13 @@ Plug 'xolox/vim-easytags'
 Plug 'xolox/vim-misc'
 Plug 'thinca/vim-quickrun'
 
+" python formatter
+Plug 'python/black', { 'tag': 'stable' }
+
+" lsp
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+
 " time management
 Plug 'wakatime/vim-wakatime'
 
@@ -217,9 +224,14 @@ set completeopt=menu
 let g:prettier#exec_cmd_async = 1
 
 nnoremap <leader>f :Autoformat <CR>
-au Filetype javascript,html,css call SetFormatCodeKey()
+au Filetype javascript,html,css call SetFormatCodeKeyJS()
+au Filetype python call SetFormatCodeKeyPython()
 
-function SetFormatCodeKey()
+function SetFormatCodeKeyPython()
+  nmap <leader>f :Black <CR>
+endfunction
+
+function SetFormatCodeKeyJS()
   nmap <leader>f <plug>(Prettier)
 endfunction
 
