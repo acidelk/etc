@@ -21,6 +21,10 @@ Plug 'rbgrouleff/bclose.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
+Plug 'preservim/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'ryanoasis/vim-devicons'
+
 Plug 'junegunn/vim-slash'
 
 
@@ -31,13 +35,8 @@ Plug 'neoclide/coc.nvim'
 Plug 'elzr/vim-json'
 Plug 'Chiel92/vim-autoformat'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'honza/vim-snippets'
-Plug 'janko-m/vim-test'
 Plug 'jiangmiao/auto-pairs'
-Plug 'justinmk/vim-sneak'
-Plug 'majutsushi/tagbar'
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'scrooloose/nerdcommenter'
 Plug 'SirVer/ultisnips'
 Plug 'sjl/gundo.vim'
@@ -47,7 +46,6 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'vim-scripts/BufOnly.vim'
 Plug 'vim-scripts/YankRing.vim'
-Plug 'xolox/vim-easytags'
 Plug 'xolox/vim-misc'
 Plug 'thinca/vim-quickrun'
 
@@ -60,6 +58,9 @@ Plug 'mattn/vim-lsp-settings'
 
 " time management
 Plug 'wakatime/vim-wakatime'
+
+" git diff
+Plug 'sindrets/diffview.nvim'
 
 " ---------
 " languages
@@ -104,16 +105,9 @@ set cursorline
 nnoremap <Tab> :bnext<CR>
 nnoremap <S-Tab> :bprevious<CR>
 
-" redraw
-nnoremap <leader>l :nohlsearch<cr>:diffupdate<cr>:syntax sync fromstart<cr><c-l>
-
 " shifting
 xnoremap <  <gv
 xnoremap >  >gv
-
-" empty lines
-nnoremap [<space>  :<c-u>put! =repeat(nr2char(10), v:count1)<cr>'[
-nnoremap ]<space>  :<c-u>put =repeat(nr2char(10), v:count1)<cr>
 
 " airline
 let g:airline#extensions#tabline#enabled = 1
@@ -125,7 +119,15 @@ set laststatus=0
 set noshowmode
 set nonu
 
-" indents
+" NerdTree
+nnoremap <leader>t :NERDTreeToggle <CR>
+
+" Exit Vim if NERDTree is the only window left.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
+    \ quit | endif
+
+
+"indents
 set tabstop=2
 set softtabstop=2
 set expandtab
@@ -202,16 +204,16 @@ let g:python3_host_prog = $HOME.'/.pyenv/versions/neovim3/bin/python'
 " remove automatic line numbers and put everything else back
 let g:pymode_options = 0
 
-au Filetype python call SetPymodeOptions()
+"au Filetype python call SetPymodeOptions()
 
-function SetPymodeOptions()
-  setlocal complete+=t
-  setlocal formatoptions-=t
-  setlocal nowrap
-  setlocal textwidth=79
-  setlocal commentstring=#%s
-  setlocal define=^\s*\\(def\\\\|class\\)
-endfunction
+"function SetPymodeOptions()
+  "setlocal complete+=t
+  "setlocal formatoptions-=t
+  "setlocal nowrap
+  "setlocal textwidth=88
+  "setlocal commentstring=#%s
+  "setlocal define=^\s*\\(def\\\\|class\\)
+"endfunction
 
 " disable autodoc
 set completeopt=menu
@@ -221,33 +223,12 @@ set completeopt=menu
 " formatting
 " ----------
 
-let g:prettier#exec_cmd_async = 1
-
 nnoremap <leader>f :Autoformat <CR>
-au Filetype javascript,html,css call SetFormatCodeKeyJS()
 au Filetype python call SetFormatCodeKeyPython()
 
 function SetFormatCodeKeyPython()
   nmap <leader>f :Black <CR>
 endfunction
-
-function SetFormatCodeKeyJS()
-  nmap <leader>f <plug>(Prettier)
-endfunction
-
-
-" --------
-" snippets
-" --------
-
-let g:UltiSnipsExpandTrigger="<c-e>"
-
-
-" -----------
-" golden view
-" -----------
-
-let g:goldenview__enable_default_mapping = 0
 
 
 " ------
@@ -277,16 +258,6 @@ set nofoldenable
 " --------
 
 let g:instant_markdown_autostart = 1
-
-
-" -------
-" tagging
-" -------
-
-nnoremap <F7> :TagbarToggle<CR>
-
-let g:easytags_async = 1
-let g:easytags_suppress_ctags_warning = 1
 
 
 " ---
