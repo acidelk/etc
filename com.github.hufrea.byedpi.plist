@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>com.github.hufrea.byedpi</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/Users/fed.guman/Projects/byedpi/ciadpi</string>
+		<string>-x0</string>
+		<string>--port=1080</string>
+		<string>-s0</string>
+		<string>-o1</string>
+		<string>-d1</string>
+		<string>-r2+s</string>
+		<string>-Ar</string>
+		<string>-o1</string>
+		<string>-At</string>
+		<string>-r1+s</string>
+		<string>-As</string>
+	</array>
+	<key>RunAtLoad</key>
+	<true/>
+	<key>StandardErrorPath</key>
+	<string>/Users/fed.guman/Projects/byedpi/error.log</string>
+	<key>StandardOutPath</key>
+	<string>/Users/fed.guman/Projects/byedpi/error.log</string>
+	<key>WorkingDirectory</key>
+	<string>/Users/fed.guman/Projects/byedpi/</string>
+</dict>
+</plist>
